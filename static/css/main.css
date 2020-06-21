@@ -1,0 +1,31 @@
+.bg {
+    background-image: url("../images/Main-Logo.png");
+    background-position: center;
+    background-size: cover;
+	height: 1200px;
+  }
+.intro-text {
+    font-size: 200%
+} 
+
+.headImg {
+    height: 200px;
+}
+.extra-boader {
+    border-bottom: 5px solid #ffc107;
+}
+.secHeading {
+    background-color: black;
+}
+.bottom {
+    height: 603px;
+}
+.middle-card {
+padding-top: 60px;
+}
+
+#container {
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0 auto;
+  }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  -->
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="bg">
+	    <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+                        <li id="Home" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="p-3 bg-dark extra-boader"></div>
+        <div class="p-4">
+            <a href="{{url_for('graphs')}}" class="btn btn-dark">Go back</a>
+        </div>
+
+        <!--<div class="d-flex justify-content-center mt-4 width='80%'">-->
+            <div id="container2"></div>
+        <!--</div>-->
+		<center><div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+		<div class="card-body">
+        <h5 class="card-title">Network Graph</h5>
+        <p class="card-text">The Network graph is drawn based on the Various events and Organisations been discussed in the News data that we extracted. It helps to understand how different Organizations are related to different Catastrophic events </p>
+         </div></div></center>
+    </div>
+
+  
+
+    <script>
+    
+Highcharts.chart('container2', {
+  chart: {
+    type: 'networkgraph',
+	height: '700px',
+	widht : '1100px'
+  },
+  title: {
+    text: 'Analysis on Corona based on Region, Location and Impact'
+  },
+  subtitle: {
+    text: 'A Force-Directed Network Graph'
+  },
+  plotOptions: {
+    networkgraph: {
+      layoutAlgorithm: {
+        enableSimulation: true
+      }
+    }
+  },
+  series: [{
+    dataLabels: {
+      enabled: true,
+	  linkFormat: '{point.relation}',
+    },    
+	textPath: {
+		enabled: true,
+		attributes: {
+			dy: 14,
+			startOffset: '45%',
+			textLength: 80
+		}
+	},
+	
+	
+    data:[{"from":"Wuhan","to":"Thousands thousands coronavirus city hundreds people December Thousands Wuhan","relation":"fallen appearing more already died previously"},{"from":"Wuhan","to":"hundreds of thousands thousands coronavirus city hundreds people December Thousands Wuhan","relation":"fallen appearing more already died previously"},{"from":"40%","to":"six use year power plants Chinas China emissions people start quarter coal factories % home","relation":"instructed fell stay"},{"from":"25%","to":"six use year power plants Chinas China emissions people start quarter coal factories % home","relation":"instructed fell stay"},{"from":"China","to":"six use year power plants Chinas China emissions people start quarter coal factories % home","relation":"instructed fell stay"},{"from":"Chinas","to":"six use year power plants Chinas China emissions people start quarter coal factories % home","relation":"instructed fell stay"},{"from":"11.4%","to":"337 proportion year cities quality Ministry Ecology China air Environment days % time","relation":"according compared up"},{"from":"China","to":"337 proportion year cities quality Ministry Ecology China air Environment days % time","relation":"according compared up"},{"from":"Ministry of Ecology and Environment","to":"337 proportion year cities quality Ministry Ecology China air Environment days % time","relation":"according compared up"},{"from":"OECD","to":"half growth predictions coronavirus OECD half economy","relation":"fallen grow predicts still will"},{"from":"Mirror Pune Mirror Daily News Daily News Body Secret Revelation","to":"2020 Body Mirror Revelation Pune Daily Secret News Mar","relation":""},{"from":"Mirror Pune Mirror Daily News Daily News Body Secret Revelation","to":"17 Body Mirror Revelation Pune Daily Secret News Mar","relation":""},{"from":"Juneja","to":"between 2.30am and 6.30am Juneja Submissions IST","relation":"done must says"},{"from":"Hong Kong","to":"1 midnight classmates Hong am Kong classes assignments time","relation":"stay complete"},{"from":"Karnataka","to":"83 storm count challenge Covid-19 Karnataka covid Sectors Asia","relation":"weathered rose How"},{"from":"Asia","to":"83 storm count challenge Covid-19 Karnataka covid Sectors Asia","relation":"weathered rose How"},{"from":"India","to":"3 Pandemic force Covid-19 establishments Para India factories country effect members sub 68L para employees Government EPF Scheme benefits advance notification - today","relation":"working comes therefore immediately note declared said come"},{"from":"Para 68L","to":"3 Pandemic force Covid-19 establishments Para India factories country effect members sub 68L para employees Government EPF Scheme benefits advance notification - today","relation":"working comes therefore immediately note declared said come"},{"from":"Para 68L","to":"3 months outbreak event Sub Para allowances wages epidemic members 68L amount dearness EPF % Scheme credit advance notification account","relation":"added upto exceeding provide standing inserting amends"},{"from":"75%","to":"3 months outbreak event Sub Para allowances wages epidemic members 68L amount dearness EPF % Scheme credit advance notification account","relation":"added upto exceeding provide standing inserting amends"},{"from":"EPF","to":"3 months outbreak event Sub Para allowances wages epidemic members 68L amount dearness EPF % Scheme credit advance notification account","relation":"added upto exceeding provide standing inserting amends"},{"from":"Sub-Para","to":"3 months outbreak event Sub Para allowances wages epidemic members 68L amount dearness EPF % Scheme credit advance notification account","relation":"added upto exceeding provide standing inserting amends"},{"from":"JPEG","to":"500 JPG bank number name document website IFSC holder size JPEG account file KB","relation":"supported only display clearly needs"},{"from":"IFSC","to":"500 JPG bank number name document website IFSC holder size JPEG account file KB","relation":"supported only display clearly needs"},{"from":"JPG","to":"500 JPG bank number name document website IFSC holder size JPEG account file KB","relation":"supported only display clearly needs"},{"from":"KB","to":"500 JPG bank number name document website IFSC holder size JPEG account file KB","relation":"supported only display clearly needs"},{"from":"France","to":"36 system studyof France aftera coronavirus patients March control group Chloroquine drug attention lot","relation":"found gained published taking faster cleared"},{"from":"Africa","to":"220bn jobs income UNDP half Africa nations devastation 220bn","relation":"nearly wiped warns lost"},{"from":"Africa","to":"nearly half jobs income UNDP half Africa nations devastation 220bn","relation":"nearly wiped warns lost"},{"from":"UNDP","to":"220bn jobs income UNDP half Africa nations devastation 220bn","relation":"nearly wiped warns lost"},{"from":"UNDP","to":"nearly half jobs income UNDP half Africa nations devastation 220bn","relation":"nearly wiped warns lost"},{"from":"UNDP","to":"220bn years hit losses UNDP Monday income report countries 220bn","relation":"forecast take released developing stressing said exceed recover will"},{"from":"Africa","to":"Nearly half jobs half Africa","relation":"also warned lost Nearly could"},{"from":"India","to":"1.3 billion Modi week lockdown MinisterNarendra people Prime India country","relation":"issued"},{"from":"MinisterNarendra Modi","to":"1.3 billion Modi week lockdown MinisterNarendra people Prime India country","relation":"issued"},{"from":"India","to":"Half level Half poverty India population","relation":"lives"},{"from":"Central African Republic","to":"millions Republic Central Democratic millions persons conflict African countries Eziakonwa Congo crises","relation":"existing including internally added displaced already protracted"},{"from":"the Democratic Republic of the","to":"millions Republic Central Democratic millions persons conflict African countries Eziakonwa Congo crises","relation":"existing including internally added displaced already protracted"},{"from":"Eziakonwa","to":"millions Republic Central Democratic millions persons conflict African countries Eziakonwa Congo crises","relation":"existing including internally added displaced already protracted"}], nodes:[{"id": "Africa", "marker": {"radius": 9.0, "fillColor": "#BF8B87"}}, {"id": "India", "marker": {"radius": 9.0, "fillColor": "#2EFFA1"}}, {"id": "UNDP", "marker": {"radius": 9.0, "fillColor": "#0BF762"}}, {"id": "Wuhan", "marker": {"radius": 7.0, "fillColor": "#542E62"}}, {"id": "China", "marker": {"radius": 7.0, "fillColor": "#356406"}}, {"id": "Para 68L", "marker": {"radius": 7.0, "fillColor": "#7B2329"}}, {"id": "Mirror Pune Mirror Daily News Daily News Body Secret Revelation", "marker": {"radius": 7.0, "fillColor": "#E810A9"}}, {"id": "IFSC", "marker": {"radius": 5.0, "fillColor": "#9E6D10"}}, {"id": "EPF", "marker": {"radius": 5.0, "fillColor": "#7EFCEB"}}, {"id": "Chinas", "marker": {"radius": 5.0, "fillColor": "#8DCF6D"}}, {"id": "Asia", "marker": {"radius": 5.0, "fillColor": "#76C7EE"}}, {"id": "11.4%", "marker": {"radius": 5.0, "fillColor": "#7B6B77"}}, {"id": "JPG", "marker": {"radius": 5.0, "fillColor": "#B73DA0"}}, {"id": "Eziakonwa", "marker": {"radius": 5.0, "fillColor": "#AEA351"}}, {"id": "Juneja", "marker": {"radius": 5.0, "fillColor": "#6DCA3E"}}, {"id": "Ministry of Ecology and Environment", "marker": {"radius": 5.0, "fillColor": "#81F9BA"}}, {"id": "JPEG", "marker": {"radius": 5.0, "fillColor": "#921E36"}}, {"id": "40%", "marker": {"radius": 5.0, "fillColor": "#B87B42"}}, {"id": "KB", "marker": {"radius": 5.0, "fillColor": "#61E9A1"}}, {"id": "Hong Kong", "marker": {"radius": 5.0, "fillColor": "#504F47"}}, {"id": "Karnataka", "marker": {"radius": 5.0, "fillColor": "#1EA2CF"}}, {"id": "France", "marker": {"radius": 5.0, "fillColor": "#476A1A"}}, {"id": "25%", "marker": {"radius": 5.0, "fillColor": "#6C5886"}}, {"id": "Sub-Para", "marker": {"radius": 5.0, "fillColor": "#345255"}}, {"id": "the Democratic Republic of the", "marker": {"radius": 5.0, "fillColor": "#18BB13"}}, {"id": "OECD", "marker": {"radius": 5.0, "fillColor": "#0D5D81"}}, {"id": "75%", "marker": {"radius": 5.0, "fillColor": "#034247"}}, {"id": "Central African Republic", "marker": {"radius": 5.0, "fillColor": "#394F89"}}, {"id": "MinisterNarendra Modi", "marker": {"radius": 5.0, "fillColor": "#086111"}}]
+  }]
+});
+
+ 
+    </script>
+</body>
+
+</html>
+
+</html>

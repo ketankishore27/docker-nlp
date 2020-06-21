@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="main.css" type="text/css" rel="stylesheet">-->
+    <!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  -->
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="bg">
+		<nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+			<div class="">
+				<a class="navbar-brand" href="#">Newsfeed Analysis</a>
+			</div>
+			<div class="d-flex justify-content-end">
+				<img src="../static/images/capg.png" alt="logo" width="140" height="25">
+			</div>
+		</nav>
+		<div class="main-navbar mt-4 pt-5">
+			<nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+				<div class="ml-5">
+					<ul class="navbar-nav">
+						<li id="Home" class="nav-item bg-secondary rounded-top" >
+							<a class="nav-link text-white" href="{{url_for('index')}}">Home
+								<i class="fa fa-home"></i>
+							</a>
+						</li>
+						<li id="Search" class="nav-item bg-secondary rounded-top" >
+							<a class="nav-link text-white" href="{{url_for('explore')}}">Search
+								<i class="fa fa-search"></i>
+							</a>
+						</li>
+						<li id="Insights" class="nav-item bg-dark rounded-top">
+							<a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+								<i class="fa fa-chart-line"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div> 
+
+        <div class="p-3 bg-dark extra-boader"></div>
+
+    	<div class="row m-0 bottom">
+ 
+            <div class="col-12 middle-card right">
+                    <div class="card-deck p-5 ml-5">
+                            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                              <img class="card-img-top" src="{{url_for('static', filename='images/Sentiment Analysis_Tile.jpg')}}" alt="Card image cap" height="110" width="70">
+                              <div class="card-body">
+                                <h5 class="card-title">What is trending</h5>
+                                <p class="card-text">Shows sentiment analysis for Organizations that we want to monitor </p>
+                                <a href="{{url_for('sentiment')}}" class="btn btn-dark">Go To Trending</a>
+                              </div>
+                            </div>
+                            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                              <img class="card-img-top" src="{{url_for('static', filename='images/Wrod_Embeddingd_Tile.png')}}" alt="Card image cap" height="110" width="70">
+                              <div class="card-body">
+                                <h5 class="card-title">Distributional analysis</h5>
+                                <p class="card-text">Shows different clusters present in the data.</p><br>
+                                <a href="{{url_for('wordcluster')}}" class="btn btn-dark">Go To Distributional analysis</a>
+                              </div>
+                            </div>
+                            <div  class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                              <img class="card-img-top" src="{{url_for('static', filename='images/Network_Graph_Tile.png')}}" alt="Card image cap" height="110" width="70">
+                              <div class="card-body">
+                                <h5 class="card-title">Relationship extraction</h5>
+                                <p class="card-text">Shows hierarchy and relations for the different entities & Organizations present in the data.</p>
+                                <a href="{{url_for('networkgraph')}}" class="btn btn-dark">Go To Relationships</a>  
+							  </div>
+							</div>
+							<div  class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                              <img class="card-img-top" src="{{url_for('static', filename='images/Impact.jpeg')}}" alt="Card image cap" height="110" width="70">
+                              <div class="card-body">
+                                <h5 class="card-title">Impact Assesment</h5>
+                                <p class="card-text">Prediction models to Understand Probable impact to my customers in Florida region </p>
+                                <a href="{{url_for('Insightscomp')}}" class="btn btn-dark">Go To Impact assesment</a>  
+							  </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-12 middle-card right">
+                    <div class="card-deck p-5 ml-5">
+                            <div class="card text-white bg-secondary mb-6" style="max-width: 18rem;">
+                              <img class="card-img-top" src="{{url_for('static', filename='images/catastrophe_classify.jpeg')}}" alt="Card image cap" height="110" width="70">
+                              <div class="card-body">
+                                <h5 class="card-title">Catastrophic Classification</h5>
+                                <p class="card-text">Classifies any image given to it into three categories (Hurriicane, Tropical Storm, Flood)</p>
+                                <a href="{{url_for('upload')}}" class="btn btn-dark">Go To Classification</a>
+                              </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

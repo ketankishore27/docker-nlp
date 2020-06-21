@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>News Feed Data analysis</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!--<link rel="stylesheet" href="css/style.css">-->
+		<link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css">
+		<!--<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">-->
+	</head>
+	<body class="slide-3">
+		<div class="container-fluid">
+			<img src="{{url_for('static', filename='images/capg.png')}}" alt="alt text" class="logoposition">
+			<nav class="menu">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+						<ul>
+							<li><a href="{{url_for('index')}}">Home</a></li>
+							
+
+						</ul>  
+					</div>
+				</div>
+			</nav>
+			
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+					<div class="banner-title">
+						<h1>Insights</h1> 
+					</div>
+				</div>
+			</div>  
+			<section>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
+				<div class="column">
+					<div class="row">	
+						<center><br><br>
+						
+						<div style="float: left; ">
+						<img src="/insightsgraph/" alt = "Network graphs"/>	</div>
+						</div>
+					</div>
+					
+					</div>
+				</div> 
+				<br><br><br>
+
+				
+			</section> 
+		</div>
+	</body>
+	<script src="{{url_for('static', filename='jscode.js')}}"></script>
+</html>

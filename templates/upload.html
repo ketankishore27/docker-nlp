@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  -->
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+
+</head>
+  <body>
+    <body>
+    <div class="bg">
+        <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+						<li id="Home" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="p-3 bg-dark extra-boader"></div>
+        <div class="p-4">
+            <a href= "{{url_for('graphs')}} " class="btn btn-dark">Go back</a>
+			<br><br><br>
+			<h1>Extract Information from Image</h1>
+			<br><br>
+			<form action="{{url_for('prediction')}}" method="post" id="upload-form" enctype="multipart/form-data">
+			<input type="file" name="file" id="image" accept="image/*">
+			<input type="submit" value="Send"/>
+			<input type="radio" name="rad" onclick="img(0)"> Show Image
+			<input type="radio" name="rad" onclick="img(1)" checked> Hide Image
+			<br><br><br>
+			<div>
+			<img src="{{url_for('static', filename='images/harvey.png')}}" id="myimg" height="840" width="1200"/>
+			</div>
+			<br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+  </body>
+  
+<script>
+img(1);
+function img(x)
+{
+console.log(x)
+if (x==0)
+document.getElementById("myimg").style.display="block";
+else
+document.getElementById("myimg").style.display="none"; 
+}
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  -->
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="bg">
+        <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+						<li id="Home" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="p-3 bg-dark extra-boader"></div>
+        <div class="p-4">
+            <a href= "{{url_for('graphs')}} " class="btn btn-dark">Go back</a>
+        </div>
+		<div style="float: left; ">
+		<!--<img src="{{url_for('static', filename='plots/sentiment1.html')}}" alt="sentiment1"> -->
+		</div>
+		<!-- <div class="d-flex justify-content-center mt-2">
+		<iframe src="{{url_for('static', filename='plots/sentiment1.html')}}" name="targetframe" allowTransparency="true" scrolling="no"  width="1100" height="600"></iframe>
+		</div> -->
+		<div class="d-flex justify-content-center mt-2">
+		<iframe src="{{url_for('static', filename='plots/sentiment2.html')}}" name="targetframe" allowTransparency="true" scrolling="no"  width="1100" height="600"></iframe>
+		</div>
+		<center><div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+		<div class="card-body">
+        <h5 class="card-title">Sentiment scores </h5>
+        <p class="card-text">Above figure shows the companies which have sentiment score Positive/Negative etc. To understand why the sentiment is shown positive or negative, the summary of the news is shown below for one of the Insurance companies </p>
+         </div></div></center>
+		<div class="d-flex justify-content-center mt-2">
+		<h4><font color="#248E64"> <center>Sentiment summary</center></font></h4><br></div>
+				<center><div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+		<div class="card-body">
+        <h5 class="card-title">Ins_carrier5 </h5>
+        <p class="card-text">{{fh_summary}}</p>
+         </div></div></center>
+	<!-- 						<table border = 1 style="width:50%">
+								<colgroup>
+								<col span ='1' style="width:50%">
+								</colgroup>
+								<thead>
+								<br>
+								<tr>
+									<th>Organization</th>
+									<th>Summarized News</th>
+									
+								</tr>
+								</thead>
+								<!--	{% for i in fh_summary%} -->
+	<!-- 							<tr>
+									<td>Ins_cust5</td>
+									<!--<td>{{fh_summary['summary']}}</td>-->
+	<!-- 								<td>{{fh_summary}}</td> -->
+									
+<!-- 								</tr> -->
+								<!--{% endfor %}	-->
+<!-- 							</table> -->	
+<!--		</div> -->  
+    </script>
+        <div class="d-flex justify-content-center mt-2">
+            <div id="container"></div>
+        </div>
+    </div>
+  
+
+ 
+</body>
+
+</html>
+
+</html>

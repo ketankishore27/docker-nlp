@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>AI Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+	
+</head>
+
+<body>
+	<div class="bg"> 
+		<nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+			<div class="">
+				<a class="navbar-brand" href="#">Newsfeed Analysis</a>
+			</div>
+			<div class="d-flex justify-content-end">
+				<!--<img src="../static/images/capg.png" alt="logo" width="140" height="25">-->
+				<img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+			</div>
+		</nav>
+
+
+
+
+		<!--<div id="mainPage" style="display: none;" class="pt-5">  -->
+			<div class="main-navbar mt-4">
+				<nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+					<div class="ml-5">
+						<ul class="navbar-nav">
+							<li id="Home" class="nav-item bg-dark rounded-top">
+								<a class="nav-link text-white" href="{{url_for('index')}}">Home
+									<i class="fa fa-home"></i>
+								</a>
+							</li>
+							<li id="Search" class="nav-item bg-secondary rounded-top">
+								<a class="nav-link text-white" href="{{url_for('explore')}}">Search
+									<i class="fa fa-search"></i>
+								</a>
+							</li>
+							<li id="Insights" class="nav-item bg-secondary rounded-top">
+								<a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+									<i class="fa fa-chart-line"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			<!--</div>-->
+
+			<div class="p-3 bg-dark extra-boader"></div>
+			<form role="form1" action = "{{url_for('fetching')}}" method = "POST" >  
+			<div class="row m-0 bottom">
+
+				<div class="col-3 bg-dark left-menu">
+					<div class="container pt-4 text-white">
+						<div class="p-4 border-bottom">Select Keyword <i class="fab fa-algolia"></i></div>
+						<div class="p-4 border-bottom">Select country</div>
+						<div class="p-4 border-bottom">Select the amount of Data <i class="fas fa-database"></i></div>
+						<div class="p-4 border-bottom">Enter the No.of days</div>
+						<div class="p-4 border-bottom">Enter the organization</div>
+						<div class="p-4 border-bottom">Select the duration <i class="fas fa-calendar-alt"></i></div>
+					</div>
+				</div>
+				<div class="col-9 right">
+					<div class="container pt-3">
+						<div class="p-4 col-6">
+							<input id="Events" class="w-100" type="text" name="Keyword">
+						</div>
+						<div class="p-4 col-6">
+							<select class="w-100" id="countries" name = "Country" style="width:450px">
+								<option value="All">All</option>
+								<option value="United States">UnitedStates</option>
+								<option value="Canada">Canada</option>
+								<option value="Australia">Australia</option>
+								<option value="England">England</option>
+								<option value="England">India</option>
+							</select>
+						</div>
+						<div class="p-4 col-6">
+							<select class="w-100" id="numofdayas" name = "Duration" style="width:450px">
+								<option value="10">5</option>
+								<option value="10">10</option>
+								<option value="20">15</option>
+								<option value="30">20</option>
+								<option value="40">25</option>
+								<option value="40">30</option>
+							</select>
+						</div>						
+						<div class="p-4 col-6">
+							<input id="duration" class="w-100" type="text" style="width:650px"
+								onchange="getDates()" name="Days">
+						</div>
+						
+						<div class="p-4 col-6">
+							<input id="organization" class="w-100" type="text" style="width:650px"
+								 name="Org">
+						</div>
+
+						<div class="p-4 col-6">
+							<div class="d-flex justify-content-between">
+								<div >
+									<input id="startDate" type="date" onchange="getDates()" name="st1date"> 
+									
+								</div>
+								<div>
+									<input id="endDate" type="date" onchange="getDates()" name="st2date">	
+								</div>
+							</div>
+						</div>
+						<div class="p-4 col-6">
+							<div class="d-flex justify-content-around">
+								<div>
+									<button class="btn btn-dark" type="submit">Submit</button> 
+									
+								</div>
+								<!--<div>
+									<button class="btn btn-dark">Reset</button>
+								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>-->
+		</div>
+	</div>
+</body>
+
+<script>
+	var searchData = { Events: "", countries: "", numofdatas: "", duration: "", startDate: "", endDate: "" };
+
+	function getData() {
+		searchData['Events'] = document.getElementById('Events').value;
+		searchData['countries'] = document.getElementById('countries').value;
+		searchData['numofdatas'] = document.getElementById('numofdatas').value;
+		searchData['duration'] = document.getElementById('duration').value;
+		searchData['startDate'] = document.getElementById('startDate').value;
+		searchData['endDate'] = document.getElementById('endDate').value;
+		sessionStorage.setItem('searchData', JSON.stringify(searchData));
+		console.log(JSON.parse(sessionStorage.getItem('searchData')));
+		window.location.href = "D:\Usecases\newsfeed\Newsfeedapp\NewWebapp\templates\fetching.html";
+		<!--window.location.assign({{url_for('static', filename='fetching.html')}}) --> 
+
+	}
+
+	function getDates(value) {
+		days = document.getElementById('duration').value;
+		startdateValue = document.getElementById('startDate').value;
+		enddateValue = document.getElementById('endDate').value;
+		if (days !== '') {
+			document.getElementById('startDate').disabled = true;
+			document.getElementById('endDate').disabled = true;
+		} else if (startdateValue !== '' || enddateValue !== '') {
+			document.getElementById('duration').disabled = true;
+		} else {
+			document.getElementById('startDate').disabled = false;
+			document.getElementById('endDate').disabled = false;
+			document.getElementById('duration').disabled = false;
+		}
+	}
+</script>
+
+</html>

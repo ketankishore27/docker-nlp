@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>AI Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	
+</head>
+
+<body>
+	<div class="bg">
+
+		<nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+			<div class="">
+				<a class="navbar-brand" href="#">Newsfeed Analysis</a>
+			</div>
+			<div class="d-flex justify-content-end">
+				<!--<img src="../static/images/capg.png" alt="logo" width="140" height="25">-->
+				<img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+			</div>
+		</nav>
+
+		<div id="introPage">
+		<form role="form1" action = "{{url_for('explore')}}" method = "POST" >
+		
+		<table>
+    		<tr><td colspan=5><h1 class="d-flex justify-content-center pt-4 pb-4"><i>Exposure Analytics using Newsfeeds</i></h1></td></tr>
+    		<tr >
+        		<td width=7%/>
+        		<td width=40% bgcolor=white>
+            		<table>
+                		<tr><td class="card-body bg-secondary text-white">
+            				<b><u><h5 class="card-title">Challenges</h5></u>
+                        </td></tr>
+                        <tr><td>
+            				<li>Insurance companies want to <b>reduce exposure to financial risks due to catastrophe events</b></li>
+            				<li>Underwriters require information on likely occurrence of catastrophe events to <b>assess potential losses</b> and thereby take preventive measures to <b>minimize losses</b></li>
+            				<li>It is required to estimate approximate number of <b>expected claims</b> from each catastrophe hit region and total claim amount</li>
+            				</b>
+                        </td></tr>
+                    </table>
+                </td>
+                <td width=6%></td>
+                <td width=40% bgcolor=white>
+                    <table>
+                        <tr><td class="card-body bg-secondary text-white">
+                            <b><u><h5 class="card-title">Solution </h5></u>
+                        </td></tr>
+                        <tr><td>
+                             <li>Uses <b><i>web scraping</i></b> to extract News data from Web</li>
+                             <li><b><i>AI and Machine Learning (ML) </i></b> provides insights in an easily consumable format</li>
+                             <li>Uses various <b><i>unsupervised ML techniques</i></b> to generate insights and inferences from the data such as region with higher claims etc.</li>
+                             <li>Creates <b><i>interactive visualizations</i></b> from the data such as network graph to show relation between events and organizations </li>
+                        </td></tr>
+                    </table>
+                </td>
+                <td width=7%></td>
+            </tr>
+            <tr><td colspan=5>&nbsp;</td></tr>
+            <tr>
+                <td width=7%></td>
+                <td width=40% bgcolor=white>
+                    <table>
+                        <tr><td class="card-body bg-secondary text-white">
+                            <b><u><h5 class="card-title">Benefits </h5></u>
+                        </td></tr>
+                        <tr><td>    
+                            <li><b>Estimation of potential losses</b> due to catastrophe</li>
+                			<li><b>Location level risk exposure</b> helps take better loss control measures. Improves profitability. It gives approximate number of claims that will come from a specific area and potential losses pertaining to it</li>
+                			<li>Automated insights offer timely information for precautionary actions to be taken</li>
+                			<li><b>Sentiment analysis</b> on the organizations mentioned in news articles helps to closely monitor organizations with negative sentiments</li>
+            			</td></tr>
+                    </table>
+                </td>
+                <td width=6%/>
+                <td width=40% bgcolor=white>
+                    <table width=100%>
+                        <tr><td class="card-body bg-secondary text-white">
+                            <b><u><h5 class="card-title">Capabilities & Technology </h5></u>
+                        </td></tr>
+                        <tr><td>    
+                            <li>Understanding news data in text form using NLP and Text Analytics</li>
+                            <li>Information extraction</li>
+                            <li>Sentiment analysis</li>
+                            <li>Text data clustering and classifications</li>
+                            <li>Technology - Python, Flask, plotly</li>
+                            </br></br>
+            			</td></tr>
+                    </table>
+                </td>
+                <td width=7%></td>
+            </tr>
+            <tr><td colspan=5 align=center>
+				<!--<button class="btn btn-dark" onclick="loadMainPage()">Home page</button> -->
+				<button class="btn btn-dark" type="submit">Explore</button>
+				</br></br></br></br>
+            </td></tr>
+        </table>
+	</p>
+</form>
+</div>
+<script>
+	var searchData = { Events: "", countries: "", numofdatas: "", duration: "", startDate: "", endDate: "" };
+<!--
+	if (sessionStorage.getItem('setHome') == 'true') {
+		document.getElementById('mainPage').style.display = 'block';
+		document.getElementById('introPage').style.display = 'none';
+	} else {
+		document.getElementById('mainPage').style.display = 'none';
+		document.getElementById('introPage').style.display = 'block';
+	}
+	function loadMainPage() {
+		document.getElementById('introPage').style.display = 'none'
+		document.getElementById('mainPage').style.display = 'block';
+	}
+-->
+
+
+	function getData() {
+		searchData['Events'] = document.getElementById('Events').value;
+		searchData['countries'] = document.getElementById('countries').value;
+		searchData['numofdatas'] = document.getElementById('numofdatas').value;
+		searchData['duration'] = document.getElementById('duration').value;
+		searchData['startDate'] = document.getElementById('startDate').value;
+		searchData['endDate'] = document.getElementById('endDate').value;
+		sessionStorage.setItem('searchData', JSON.stringify(searchData));
+		console.log(JSON.parse(sessionStorage.getItem('searchData')));
+		<!--window.location.href = "fetching.html"; -->
+
+		window.location.assign({{url_for('static', filename='fetching.html')}})
+
+	}
+
+	function getDates(value) {
+		days = document.getElementById('duration').value;
+		startdateValue = document.getElementById('startDate').value;
+		enddateValue = document.getElementById('endDate').value;
+		if (days !== '') {
+			document.getElementById('startDate').disabled = true;
+			document.getElementById('endDate').disabled = true;
+		} else if (startdateValue !== '' || enddateValue !== '') {
+			document.getElementById('duration').disabled = true;
+		} else {
+			document.getElementById('startDate').disabled = false;
+			document.getElementById('endDate').disabled = false;
+			document.getElementById('duration').disabled = false;
+		}
+	}
+</script>
+
+</html>

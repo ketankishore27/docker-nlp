@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="bg">
+        <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+                        <li id="Home" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        
+        <div class="p-3 bg-dark extra-boader"></div>
+        
+        <div class="p-4">
+            <a href= "{{url_for('graphs')}}" class="btn btn-dark">Go back</a>
+        </div>
+
+        <div class="card ml-5 mr-5">
+            <div class="d-flex justify-content-center mt-2 p-2">
+                <iframe src="{{url_for('static', filename='plots/Word2vec.html')}}" name="targetframe" allowTransparency="true" scrolling="yes" class="w-100"
+                style="height:600px"></iframe>
+            </div>
+            <div class="card-body bg-secondary text-white">
+                <h5 class="card-title">Words representation </h5>
+                <p class="card-text">This helps to understand the commonly used terms with respect to Catastrophes in the news articles.<br>
+				Some of the examples are Catastrophe Weather and event are very closely related.
+				Wildfires, Flooding, Hurricanes, storms these are all closely related.
+				Government, mortgage are closely  related.
+				Models and Technology are closely related .</p>
+            </div>
+        </div>
+			<!--<div class="d-flex justify-content-center mt-2 p-2">
+                <iframe src="{{url_for('static', filename='plots/clusters.html')}}" name="targetframe" allowTransparency="true" scrolling="yes" class="w-100"
+                style="height:600px"></iframe>
+            </div>  -->
+        <div class="mt-5">
+            <nav class="navbar navbar-light bg-light ml-5 mr-5 pl-4">
+                <h3><font color="#248E64"><center>Cluster Analysis</center></font></h3> 
+            </nav>
+
+            <div class="row m-0 bottom">
+                <div class="col-12 right">
+                    <div class="card-deck m-4 ml-5">
+                        <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+                            <img src="{{url_for('static', filename='plots/Cluster1.png')}}" alt="Cluster1" alt="Card image cap" height="410" width="384">
+                            <div class="card-body">
+                                <h5 class="card-title">Cluster1</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;"> 
+                            <img src="{{url_for('static', filename='plots/Cluster2.png')}}" alt="Cluster2" alt="Card image cap" height="410" width="383">
+                            <div class="card-body">
+                                <h5 class="card-title">Cluster2</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+                            <img src="{{url_for('static', filename='plots/Cluster3.png')}}" alt="Cluster3" alt="Card image cap" height="410" width="384"> 
+                            <div class="card-body">
+                                <h5 class="card-title">Cluster3</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+</body>
+
+</html>
+
+</html>

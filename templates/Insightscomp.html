@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="bg"  style="height:2520px">
+        <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+                        <li id="Home" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="p-3 bg-dark extra-boader"></div>
+        <div class="p-4">
+            <a href="{{url_for('graphs')}} " class="btn btn-dark">Go back</a>
+        </div>
+        <div class="d-flex">
+            <div class="card m-3">
+                <img class="w-100 p-1 pt-4" src="{{url_for('static', filename='plots/FeatureImportance1.png')}}" alt="FeatureImportance1"
+                    alt="Card image cap" height="800">
+                <div class="card-body bg-secondary text-white">
+                    <h5 class="card-title">Feature Importance plot for No.of Claims :Explains how Features like
+                        Claim Frequency, Parking_Type Indoor/Outdoor parking, Travelling time of customer etc.
+                        Impacts No.of claims raised </h5>
+                </div>
+            </div>
+            <div class="card m-3">
+                <img class="w-100 p-1 pt-4" src="{{url_for('static', filename='plots/FeatureImportance2.png')}}" alt="FeatureImportance2"
+                    alt="Card image cap" height="800">
+                <div class="card-body bg-secondary text-white ">
+                    <h5 class="card-title">Feature Importance plot for Claim Amount : Explains how Features like
+                        Bluebook amount, Parking Type, Travel time etc. Impacts the Claim Amount</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row m-0 bottom">
+            <div class="col-12">
+                <div class="card-deck m-4">
+                  <table><tr><td>
+                    <div class="card text-white bg-white mb-3">
+                        <iframe src="{{url_for('static', filename='images/harvey_geo.gif')}}" name="targetframe" allowTransparency="true"
+                            scrolling="no" height="500"></iframe>
+                        <div class="card-body bg-secondary text-white ">
+                            <h5 class="card-title">Area currently facing the catastrophic impact presented in animated format</h5>
+                        </div>
+                    </div>
+                    </td><td>
+                       
+                    <img src="{{url_for('static', filename='images/harvey_snippet.png')}}" alt="storm" width="700" height="500">
+                        <div class="card-body bg-secondary text-white ">
+                            <h5 class="card-title">Satellite Image of the Catastrophe</h5>
+                        </div>
+
+                    </div>
+                    </td></tr>
+                  </table>
+                </div>
+                <div class="card-deck m-4">
+                    <div class="card text-white bg-white mb-3">
+                        <iframe src="{{url_for('static', filename='plots/Predictedclaims2.html')}}" name="targetframe" allowTransparency="true"
+                            scrolling="no" height="500"></iframe>
+                        <div class="card-body bg-secondary text-white ">
+                            <h5 class="card-title">Predicted Claim amounts for Florida. Predicted Claim amounts for Florida. One can infer that there may be more claims from Dual county </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="bg">
+        <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+                        <li id="Home" class="nav-item bg-secondary rounded-top" onclick="setHome()">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="main-content">
+            <div class="bg-dark extra-boader">
+                <div class="col-md-8 d-flex justify-content-start">
+                    <span class="d-flex align-items-center text-white">Keywords</span>
+                    <div class="p-2 ">
+                        <input id="Events" type="text" value="{{fh_input_data['inp_Keyword']}}">
+                    </div>
+                    <div class="p-2">
+                        <input id="countries" type="text" value="{{fh_input_data['inp_Country']}}">
+                    </div>
+                    <div class="p-2">
+                        <input id="numofdatas" type="text" value="{{fh_input_data['inp_Duration']}}">
+					</div>	
+                    <div class="p-2">
+                        <input id="numofdays" type="text" value="{{fh_input_data['inp_Days']}}">
+					</div>
+					<div class="p-2">
+                        <input id="Org" type="text" value="{{fh_input_data['inp_Org']}}">
+					</div>
+                    <div class="p-2">
+                        <input id="startDate" type="text" value="{{fh_input_data['inp_st1date']}}">
+                    </div>
+                    <div class="p-2">
+                        <input id="endDate" type="text" value="{{fh_input_data['inp_st2date']}}">
+                    </div>
+                    <span class="d-flex align-items-center text-white" onclick="clearAll()">Clear All</span>
+                </div>
+            </div>
+            <div class="row m-0 bottom">
+                <div class="col-3 bg-dark left ">
+                    <div class="container pt-4">
+                        <h1 class="p-5 text-white">Fetching Details</h1>
+                    </div>
+                </div>
+                <div class="col-9 pt-2 middle right">
+
+                    <div class="text-center mt-5" id="loadDefault">
+                        <div class="spinner-border m-5 text-dark" style="width: 6rem; height: 6rem;" role="status">
+                            <span class="sr-only ">Loading</span>
+                        </div>
+                        <p class="p-3 text-dark">Fetching data !!!</p>
+                        <div class="spinner-grow text-dark" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-dark" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-dark" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+					<form role="form1" action = "{{url_for('graphs')}}" method = "POST" >  
+                    <div class="text-center mt-5 p-5" id="buttonShow" style="display:none;">
+                        <div class="card bg-dark text-white" style="width: 45rem;">
+                            <div class="card-header">
+                                Congratulation !!!
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Data fetched successfully</h5>
+                                <p class="card-text">Data related information additional content.</p>
+                                <!--<a href="./graphs.html" class="btn btn-light">Lets go to Insights</a>  -->
+								<button class="btn btn-secondary" type="submit">Lets go to Insights</button>   
+                            </div>
+                        </div>
+                    </div>
+					</form>
+
+                    <div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+
+    var flag = true;
+
+    function setHome() {
+        sessionStorage.setItem('setHome', true);
+        console.log(sessionStorage.setItem('setHome', true));
+    }
+
+    function load() {
+        flag = false;
+        var divs = document.getElementById('loadDefault');
+        divs.style.display = 'none';
+        var showBtn = document.getElementById('buttonShow');
+        showBtn.style.display = 'block';
+    }
+
+    setTimeout(load, 3000);
+
+    function navigationButton() {
+        window.location.href = "graphs.html";
+    }
+
+    let searchData = JSON.parse(sessionStorage.getItem('searchData'));
+    var moonLanding = new Date(searchData['startDate']);
+    var moonLanding2 = new Date(searchData['endDate']);
+    if (searchData['startDate'] === '' && searchData['endDate'] === '') {
+        if (searchData['duration'] !== '') {
+            document.getElementById('startDate').value = searchData['duration'];
+        } else {
+            document.getElementById('startDate').style.display = 'none';
+        }
+        document.getElementById('endDate').style.display = 'none'
+    } else {
+        document.getElementById('startDate').value = moonLanding.getFullYear();
+        document.getElementById('endDate').value = moonLanding2.getFullYear();
+    }
+    if (searchData['Events'] !== '') {
+        document.getElementById('Events').value = searchData['Events'];
+    } else {
+        document.getElementById('Events').style.display = 'none';
+    }
+    if (searchData['countries'] !== '') {
+        document.getElementById('countries').value = searchData['countries'];
+    } else {
+        document.getElementById('countries').style.display = 'none';
+    }
+    if (searchData['numofdatas'] !== '') {
+        document.getElementById('numofdatas').value = searchData['numofdatas'];
+    } else {
+        document.getElementById('numofdatas').style.display = 'none';
+    }
+
+    function clearAll() {
+        document.getElementById('Events').value = '';
+        document.getElementById('countries').value = '';
+        document.getElementById('numofdatas').value = '';
+        document.getElementById('startDate').value = '';
+        document.getElementById('endDate').value = '';
+    }
+</script>
+
+</html>

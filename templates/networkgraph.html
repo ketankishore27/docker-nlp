@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/gantt/modules/networkgraph.js"></script>
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<!--<link href="main.css" type="text/css" rel="stylesheet">-->
+	<!--<link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  -->
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="bg">
+	    <nav class=" d-flex justify-content-between navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="">
+                <a class="navbar-brand" href="#">Newsfeed Analysis</a>
+            </div>
+            <div class="d-flex justify-content-end">
+                <img src="{{url_for('static', filename='images/capg.png')}}" alt="logo" width="140" height="25">
+            </div>
+        </nav>
+
+        <div class="main-navbar mt-4 pt-5">
+            <nav class="navbar navbar-expand-sm navbar-light p-0 w-100">
+                <div class="ml-5">
+                    <ul class="navbar-nav">
+                        <li id="Home" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('index')}}">Home
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li id="Search" class="nav-item bg-secondary rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('explore')}}">Search
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                        <li id="Insights" class="nav-item bg-dark rounded-top">
+                            <a class="nav-link text-white" href="{{url_for('graphs')}}">Insights
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="p-3 bg-dark extra-boader"></div>
+        <div class="p-4">
+            <a href="{{url_for('graphs')}}" class="btn btn-dark">Go back</a>
+        </div>
+
+        <!--<div class="d-flex justify-content-center mt-4 width='80%'">-->
+            <div id="container2"></div>
+        <!--</div>-->
+		<center><div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+		<div class="card-body">
+        <h5 class="card-title">Network Graph</h5>
+        <p class="card-text">The Network graph is drawn based on the Various events and Organisations been discussed in the News data that we extracted. It helps to understand how different Organizations are related to different Catastrophic events </p>
+         </div></div></center>
+    </div>
+
+  
+
+    <script>
+    
+Highcharts.chart('container2', {
+  chart: {
+    type: 'networkgraph',
+	height: '700px',
+	widht : '1100px'
+  },
+  title: {
+    text: 'Analysis on Catastrophes'
+  },
+  subtitle: {
+    text: 'A Force-Directed Network Graph'
+  },
+  plotOptions: {
+    networkgraph: {
+      layoutAlgorithm: {
+        enableSimulation: true
+      }
+    }
+  },
+  series: [{
+    dataLabels: {
+      enabled: true
+    },
+    data: [
+{"from":"Jupiter","to":"“Year of Flood"},
+{"from":"the Intergovernmental Panel on Climate Change","to":"“Year of Flood"},
+{"from":"Jupiter","to":"Hurricane Andrew"},
+{"from":"the Intergovernmental Panel on Climate Change","to":"Hurricane Andrew"},
+{"from":" ","to":"All Rights Reserved"},
+{"from":"Business Insurance","to":"Break Out Award"},
+{"from":"PE","to":"Break Out Award"},
+{"from":"the Pacific Ocean","to":"Hurricane Patricia"},
+{"from":"FCC","to":"International Telecom Adjusted EBITDA"},
+{"from":"Renewable Energy Renewable Energy","to":"International Telecom Adjusted EBITDA"},
+{"from":"GIC","to":"Hurricane Michael"},{"from":"Mr Bank","to":"Hurricane Michael"},
+{"from":"Core","to":"the Three Months EndedMarch 31"},
+{"from":"Company","to":"the Three Months EndedMarch 31"},
+{"from":"the Reconciliation of GAAP Measures","to":"the Three Months EndedMarch 31"},
+{"from":"GAAP","to":"the Three Months EndedMarch 31"},
+{"from":"Property & Casualty Operations Results","to":"the Three Months EndedMarch 31"},
+{"from":"NWP","to":"the Three Months EndedMarch 31"},
+{"from":"the Greenlight Capital Re Ltd.","to":"First Quarter 2019"},
+{"from":"Website Privacy & Cookies","to":"All Rights Reserved"},
+{"from":"Disclaimer Steve Evans Ltd.","to":"All Rights Reserved"},
+{"from":"Aon’s Reinsurance Solutions","to":"Hurricane Michael"},
+{"from":"Aon’s Reinsurance Solutions","to":"Typhoon Mangkhut"},
+{"from":"AIG","to":"Hurricane Michael"},
+{"from":"Investor Financial Supplement","to":"Financial Results Presentation"},
+{"from":"HARTFORD","to":"Financial Results Presentation"},
+{"from":"Investor Financial Supplement","to":"the “Email Alerts” section"},
+{"from":"HARTFORD","to":"the “Email Alerts” section"},
+{"from":" ","to":"Financial Results Presentation"},
+{"from":" ","to":"the “Email Alerts” section"},
+{"from":"Pinkerton the bet","to":"Hurricane Maria"},
+{"from":"Pinkerton","to":"Hurricane Maria"},
+{"from":"Deloitte","to":"Hurricane Maria"},
+{"from":"Pinkerton can","to":"Hurricane Maria"},
+{"from":"Pinkerton the bet","to":"the Great Dying"},
+{"from":"Pinkerton","to":"the Great Dying"},
+{"from":"Deloitte","to":"the Great Dying"},
+{"from":"Pinkerton can","to":"the Great Dying"},
+{"from":"Pinkerton’s","to":"Hurricane Maria"},
+{"from":"Pinkerton’s","to":"the Great Dying"},
+{"from":"Pinkerton the bet","to":"Hurricane Harvey"},
+{"from":"Pinkerton","to":"Hurricane Harvey"},
+{"from":"Deloitte","to":"Hurricane Harvey"},
+{"from":"Pinkerton can","to":"Hurricane Harvey"},
+{"from":"Pinkerton’s","to":"Hurricane Harvey"},
+{"from":"Hartford Financial Services Group Inc.","to":"Hurricane Michael"},
+{"from":"HIG","to":"Hurricane Michael"},
+{"from":"the Camp Fire","to":"Hurricane Michael"},
+{"from":"the SPDR S&P Insurance","to":"Hurricane Michael"},
+{"from":"KIE","to":"Hurricane Michael"},
+{"from":"SPX","to":"Hurricane Michael"},
+{"from":"EU","to":"EU-U.S. Forum"},
+{"from":"the European Insurance","to":"EU-U.S. Forum"},
+{"from":"Occupational Pensions Authority","to":"EU-U.S. Forum"},
+{"from":"EIOPA","to":"EU-U.S. Forum"},
+{"from":"the National Association of Insurance Commissioners","to":"EU-U.S. Forum"},
+{"from":"the Federal Insurance Office","to":"EU-U.S. Forum"},
+{"from":"the U.S. Department of Treasury","to":"EU-U.S. Forum"},
+{"from":"Steve Evans Ltd.","to":"All Rights Reserved"},
+{"from":"RVS","to":"Hurricane Andrew"},
+{"from":"Catastrophe Analytics","to":"Hurricane Andrew"},
+{"from":"RMS","to":"Hurricane Andrew"},
+{"from":"Muir-Wood","to":"Hurricane Andrew"},
+{"from":"RVS","to":"Hurricane Katrina"},
+{"from":"RVS","to":"Hurricane Sandy"},
+{"from":"RVS","to":"Hurricane Harvey"},
+{"from":"Catastrophe Analytics","to":"Hurricane Katrina"},
+{"from":"Catastrophe Analytics","to":"Hurricane Sandy"},
+{"from":"Catastrophe Analytics","to":"Hurricane Harvey"},
+{"from":"RMS","to":"Hurricane Katrina"},
+{"from":"RMS","to":"Hurricane Sandy"},
+{"from":"RMS","to":"Hurricane Harvey"},
+{"from":"Muir-Wood","to":"Hurricane Katrina"},
+{"from":"Muir-Wood","to":"Hurricane Sandy"},
+{"from":"Muir-Wood","to":"Hurricane Harvey"},
+{"from":"Hurricane Florence","to":"Hurricane Andrew"},
+{"from":"Hurricane Florence","to":"Hurricane Katrina"},
+{"from":"Hurricane Florence","to":"Hurricane Sandy"},
+{"from":"Hurricane Florence","to":"Hurricane Harvey"},
+{"from":"” Muir-Wood","to":"Hurricane Andrew"},
+{"from":"” Muir-Wood","to":"Hurricane Katrina"},
+{"from":"” Muir-Wood","to":"Hurricane Sandy"},
+{"from":"” Muir-Wood","to":"Hurricane Harvey"},
+{"from":"RVS","to":"Katrina"},
+{"from":"Catastrophe Analytics","to":"Katrina"},
+{"from":"RMS","to":"Katrina"},
+{"from":"Muir-Wood","to":"Katrina"},
+{"from":"Hurricane Florence","to":"Katrina"},
+{"from":"” Muir-Wood","to":"Katrina"},
+{"from":"the National Flood Insurance Program","to":"Hurricane Andrew"},
+{"from":"the National Flood Insurance Program","to":"Hurricane Katrina"},
+{"from":"the National Flood Insurance Program","to":"Hurricane Sandy"},
+{"from":"the National Flood Insurance Program","to":"Hurricane Harvey"},
+{"from":"the National Flood Insurance Program","to":"Katrina"},
+{"from":"Harvey","to":"Hurricane Andrew"},
+{"from":"Harvey","to":"Hurricane Katrina"},
+{"from":"Harvey","to":"Hurricane Sandy"},
+{"from":"Harvey","to":"Hurricane Harvey"},
+{"from":"Harvey","to":"Katrina"},
+{"from":"NFIP","to":"Hurricane Andrew"},
+{"from":"NFIP","to":"Hurricane Katrina"},
+{"from":"NFIP","to":"Hurricane Sandy"},
+{"from":"NFIP","to":"Hurricane Harvey"},
+{"from":"NFIP","to":"Katrina"},
+{"from":"Europe","to":"Hurricane Michael"},
+{"from":"Europe","to":"Hurricane Leslie"},
+{"from":"Southern and Central Europe","to":"Hurricane Michael"},
+{"from":"Southern and Central Europe","to":"Hurricane Leslie"},
+{"from":"MAA","to":"the MAA Series"},{"from":" ","to":"the MAA Series"},
+{"from":"MAA","to":"The Same Store Portfolio"},
+{"from":" ","to":"The Same Store Portfolio"},
+{"from":"Average Effective Rent per Unit","to":"the MAA Series"},
+{"from":"Average Effective Rent per Unit","to":"The Same Store Portfolio"},
+{"from":"MAA","to":"the Same Store Portfolio"},
+{"from":" ","to":"the Same Store Portfolio"},
+{"from":"Average Effective Rent per Unit","to":"the Same Store Portfolio"},
+{"from":"Average Physical Occupancy","to":"the MAA Series"},
+{"from":"Average Physical Occupancy","to":"The Same Store Portfolio"},
+{"from":"Average Physical Occupancy","to":"the Same Store Portfolio"},
+{"from":"NOI","to":"the MAA Series"},
+{"from":"NOI","to":"The Same Store Portfolio"},
+{"from":"NOI","to":"the Same Store Portfolio"},
+{"from":"MAA","to":"Midtown II"},
+{"from":" ","to":"Midtown II"},
+{"from":"Average Effective Rent per Unit","to":"Midtown II"},
+{"from":"Average Physical Occupancy","to":"Midtown II"},
+{"from":"NOI","to":"Midtown II"},
+{"from":"Post River North","to":"the MAA Series"},{"from":"Post River North","to":"The Same Store Portfolio"},{"from":"Post River North","to":"the Same Store Portfolio"},{"from":"Post River North","to":"Midtown II"},{"from":"Post Centennial Park","to":"the MAA Series"},{"from":"Post Centennial Park","to":"The Same Store Portfolio"},{"from":"Post Centennial Park","to":"the Same Store Portfolio"},{"from":"Post Centennial Park","to":"Midtown II"},{"from":"Acquisition and Disposition","to":"the MAA Series"},{"from":"Acquisition and Disposition","to":"The Same Store Portfolio"},{"from":"Acquisition and Disposition","to":"the Same Store Portfolio"},{"from":"Acquisition and Disposition","to":"Midtown II"},{"from":"MAA","to":"the \"Financial Results\""},{"from":" ","to":"the \"Financial Results\""},{"from":"Average Effective Rent per Unit","to":"the \"Financial Results\""},{"from":"Average Physical Occupancy","to":"the \"Financial Results\""},{"from":"NOI","to":"the \"Financial Results\""},{"from":"Post River North","to":"the \"Financial Results\""},{"from":"Post Centennial Park","to":"the \"Financial Results\""},{"from":"Acquisition and Disposition","to":"the \"Financial Results\""},{"from":"FFO","to":"the MAA Series"},{"from":"FFO","to":"The Same Store Portfolio"},{"from":"FFO","to":"the Same Store Portfolio"},{"from":"FFO","to":"Midtown II"},{"from":"FFO","to":"the \"Financial Results\""},{"from":"CallSupplemental","to":"the MAA Series"},{"from":"CallSupplemental","to":"The Same Store Portfolio"},{"from":"CallSupplemental","to":"the Same Store Portfolio"},{"from":"CallSupplemental","to":"Midtown II"},{"from":"CallSupplemental","to":"the \"Financial Results\""},{"from":"MAA's","to":"the MAA Series"},{"from":"MAA's","to":"The Same Store Portfolio"},{"from":"MAA's","to":"the Same Store Portfolio"},{"from":"MAA's","to":"Midtown II"},{"from":"MAA's","to":"the \"Financial Results\""},{"from":"Board of Directors","to":"the MAA Series"},{"from":"Board of Directors","to":"The Same Store Portfolio"},{"from":"Board of Directors","to":"the Same Store Portfolio"},{"from":"Board of Directors","to":"Midtown II"},{"from":"Board of Directors","to":"the \"Financial Results\""},{"from":"  Everest Re Group Ltd.","to":"Hurricane Michael"},{"from":"Everest","to":"Hurricane Michael"},{"from":"Dominic","to":"Hurricane Michael"},{"from":"Addesso","to":"Hurricane Michael"},{"from":"NearMap","to":"Hurricane Michael"},{"from":"Florence","to":"Hurricane Michael"},{"from":"Hurricane Florence","to":"Hurricane Michael"},{"from":"Nearmap","to":"Hurricane Michael"},{"from":"State Farm’s","to":"Hurricane Michael"},{"from":"RedLabs Department","to":"Hurricane Michael"},{"from":"State Farm","to":"Hurricane Michael"},{"from":"Carnahan","to":"Hurricane Michael"},{"from":"S&P Global Ratings Inc.","to":"Hurricane Michael"},{"from":"S&P Global Ratings Inc.","to":"Break Out Award"},{"from":"Keefe Bruyette & Woods Inc.","to":"Hurricane Michael"},{"from":"Keefe Bruyette & Woods Inc.","to":"Break Out Award"},{"from":"Gulf","to":"Hurricane Michael"},{"from":"Gulf","to":"Break Out Award"},{"from":"Business Insurance","to":"Hurricane Michael"},{"from":"PE","to":"Hurricane Michael"},{"from":"the California Department of Insurance","to":"Hurricane Michael"},{"from":"Woolsey\/Hill","to":"Hurricane Michael"},{"from":"AIR Worldwide","to":"Hurricane Michael"},{"from":"Risk Management Solutions Inc.","to":"Hurricane Michael"},{"from":"Corelogic Inc.","to":"Hurricane Michael"},{"from":"the California Department of Insurance","to":"Break Out Award"},{"from":"Woolsey\/Hill","to":"Break Out Award"},{"from":"AIR Worldwide","to":"Break Out Award"},{"from":"Risk Management Solutions Inc.","to":"Break Out Award"},{"from":"Corelogic Inc.","to":"Break Out Award"},{"from":"RMS Total","to":"Hurricane Michael"},{"from":"RMS Total","to":"Break Out Award"},{"from":"AIR 1","to":"Hurricane Michael"},{"from":"AIR 1","to":"Break Out Award"},{"from":"QBE Insurance Group","to":"Hurricane Season"},{"from":"Lloyd’s of London","to":"Hurricane Season"},{"from":"Lloyd’s","to":"Hurricane Season"},{"from":"Hurricane Florence","to":"Hurricane Season"},{"from":"Typhoon Mangkhut","to":"Hurricane Michael"},{"from":"Guy Carpenter & Company","to":"Hurricane Harvey"},{"from":"Langione","to":"Hurricane Harvey"},{"from":"Northeast","to":"Hurricane Michael"},{"from":"Midwest","to":"Hurricane Michael"},{"from":"Northeast","to":"Break Out Award"},{"from":"Midwest","to":"Break Out Award"},{"from":"AIG","to":"Break Out Award"},{"from":"Swiss Re Reinsurance","to":"Hurricane Michael"},{"from":"Swiss Re Reinsurance","to":"Break Out Award"},{"from":"D&O","to":"Break Out Award"},{"from":"Kessler","to":"Hurricane Andrew"},{"from":"the World Trade Center","to":"Hurricane Andrew"},{"from":"theWashington Post","to":"Hurricane Andrew"},{"from":"theWashington Post","to":"Hurricane Katrina"},{"from":"PG&E.","to":"Hurricane Andrew"},{"from":"PG&E.","to":"Hurricane Katrina"},{"from":"theWashington Post","to":"Katrina"},{"from":"PG&E.","to":"Katrina"}
+    ],
+    nodes: [
+    	{
+        id: 'Hurricane Michael',
+        marker: { radius: 10, fillColor: 'yellow' }  
+    	},
+    {
+        id: 'Hurricane Season',
+ 			  marker: { radius: 5, fillColor: 'red' }        
+      },
+      {
+        id: 'D&O',
+         marker: { radius: 5, fillColor: 'red' }  
+      },
+      {
+        id: 'HARTFORD',
+        marker: { radius: 5, fillColor: 'red' }  
+      },
+      
+    ]
+  }]
+});
+
+ 
+    </script>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,3 @@
+keyword
+days
+article--url--article_date--news_source--news_title--content--word_frequencies--ngram--sentiment_scores_intensity
