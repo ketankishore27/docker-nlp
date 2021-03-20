@@ -28,7 +28,7 @@ idna==2.9
 importlib-metadata==1.6.1
 itsdangerous==1.1.0
 jellyfish==0.8.2
-Jinja2==2.11.2
+Jinja2==2.11.3
 jmespath==0.10.0
 joblib==0.15.1
 Keras-Preprocessing==1.1.2
